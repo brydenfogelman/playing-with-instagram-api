@@ -1,3 +1,8 @@
+/*
+Credits to https://learn.jquery.com/ajax/working-with-jsonp/
+Helped me get my code working!
+*/
+
 $(document).on('ready', function() {
     //added callback, this was not the right thing to do, setting the dataType as jsonp should add callback to the
     //the url
@@ -7,15 +12,18 @@ $(document).on('ready', function() {
     url: instagramAPI,
     type: 'get',
  
-    // The name of the callback parameter, as specified by the YQL service
+    // The name of the callback parameter, is callback in the case of Instagram
+    // don't even need to include the line of code below because setting the datatype
+    // as jsonp will append callback for me
     //jsonp: "callback",
  
     // Tell jQuery we're expecting JSONP
     dataType: "jsonp",
  
-    // Tell YQL what we want and that we want JSON
+    // guessing this is where we decide what to grab from the json file?
     data: {
         //q: "select title,abstract,url from search.news where query=\"cat\"",
+        // this was form the example, not entirely sure how it works
         format: "json"
     },
  
@@ -38,6 +46,7 @@ $(document).on('ready', function() {
         }
     }
 });
+    //my old code that wasn't working because dataType had a lower case T
     /*
     $.ajax({
         url: instagramAPI,
@@ -56,16 +65,5 @@ $(document).on('ready', function() {
         }
     });
     */
-    
-    
-    //https://instagram.com/oauth/authorize/?client_id=27cfd4900cee4cf99fef9c977fdcce7b&redirect_uri=http://brydenfogelman.com/instagram+oauth&response_type=token
-    /*
-    $.getJSON( instagramAPI, {
-        tags: "image",
-      })
-        .done(function( data ) {
-            $('#data').text(data);
-        });
-        */
 });
 
