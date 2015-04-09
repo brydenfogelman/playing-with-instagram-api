@@ -30,8 +30,8 @@ $(document).on('ready', function() {
     // Work with the response
     success: function( response ) {
         //$('#data').text(response);
-        //console.log( response ); // server response
-        //console.log( response.data );
+        console.log( response ); // server response
+        console.log( response.data );
         
         //create array from the data we get
         var data_array = response.data;
